@@ -11,8 +11,11 @@ namespace BlogPlatform.Models
         public string Title { get; set; }
         public string Author { get; set; }
         public DateTime PublishDate { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual int CategoryId { get; set; }
        
-        public virtual ICollection<Post> Product { get; set; }
+
+      
         public Post()
         {
 

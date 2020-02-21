@@ -10,10 +10,7 @@ namespace BlogPlatform.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-             
-    //    public virtual Post ReviewPro { get; set; }
-
-      //  public virtual int ReviewId { get; set; }
+        public virtual ICollection<Post> Post { get; set; }
 
         public Category()
         {
@@ -40,9 +37,6 @@ namespace BlogPlatform.Models
             return proModel;
         }
 
-        public static implicit operator DbSet<object>(Category v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

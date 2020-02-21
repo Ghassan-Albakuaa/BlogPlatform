@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogPlatform.Models;
+using BlogPlatform.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Review2.Models;
-using Review2.Repositories;
 
-namespace Review2.Controllers
+
+
+namespace BlogPlatform.Controllers
 {
     public class TagController : Controller
     {
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
 
+        private readonly IRepository<Tag>tagRepo;
 
-        private readonly IRepository<Review> reviewRepo;
-
-        public TagController(IRepository<Review> reviewRepo)
+        public TagController(IRepository<Tag> tagRepo)
         {
-            this.reviewRepo = reviewRepo;
+            this.tagRepo = tagRepo;
         }
         public ViewResult Index()
         {
-            var model = reviewRepo.GetAll();
+            var model = tagRepo.GetAll();
             return View(model);
 
         }
@@ -32,8 +29,8 @@ namespace Review2.Controllers
         // GET: /Details/
         public ActionResult Details(int id)
         {
-            var review = reviewRepo.Find2(id);
-            return View(review);
+            var post = tagRepo.Find(id);
+            return View(post);
         }
 
         // GET: Product/Create
@@ -45,13 +42,13 @@ namespace Review2.Controllers
         // POST: Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(int id, Review review)
+        public ActionResult Create(int id, Tag tag)
         {
 
             try
             {
 
-                reviewRepo.Add(id, review);
+                tagRepo.Add(id, tag);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -63,19 +60,19 @@ namespace Review2.Controllers
 
         public ActionResult Edit(int id)
         {
-            var review = reviewRepo.Find2(id);
-            return View(review);
+            var tag = tagRepo.Find(id);
+            return View(tag);
         }
 
-        // POST: product/Edit/
+        // POST: /Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Review review)
+        public ActionResult Edit(Tag tag)
         {
             try
             {
                 // TODO: Add update logic here
-                reviewRepo.Update( review);
+                tagRepo.Update(tag);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -88,18 +85,18 @@ namespace Review2.Controllers
         // GET: product/Delete/
         public ActionResult Delete(int id)
         {
-            var review = reviewRepo.Find2(id);
-            return View(review);
+            var tag = tagRepo.Find(id);
+            return View(tag);
         }
 
-        // POST: product/Delete/
+        // POST: /Delete/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ProductModel product)
+        public ActionResult Delete(int id, Category category)
         {
             try
             {
-                reviewRepo.Delete(id);
+                tagRepo.Delete(id);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -111,48 +108,12 @@ namespace Review2.Controllers
 
         public ActionResult Review(int id)
         {
-            var review = reviewRepo.Find2(id);
-            return View(review);
+            var product = tagRepo.Find(id);
+            return View(product);
         }
 
-        // POST: review/
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Review(int id, Review review)
-        {
-            try
-            {
-                // TODO: Add update logic here
-                reviewRepo.Review(id, review);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        public ActionResult Remove_Review(int id)
-        {
-            var review = reviewRepo.Find2(id);
-            return View(review);
-        }
 
-        // POST: product/Remove_Review/
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Remove_Review(int id, Review review)
-        {
-            try
-            {
-                // TODO: Add update logic here
-                reviewRepo.Remove_Review(id, review);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
+
 }
