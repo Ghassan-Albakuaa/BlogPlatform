@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BlogPlatform.Repositories
 {
-    public class CategoryDBpository : IRepository<Category>
+    public class CategoryDBRpository : IRepository<Category>
     {
         PostDbContext db;
 
-        public CategoryDBpository(PostDbContext _db)
+        public CategoryDBRpository(PostDbContext _db)
         {
             db = _db;
         }
@@ -48,10 +48,7 @@ namespace BlogPlatform.Repositories
             db.SaveChanges();
         }
 
-        IEnumerable<Category> IRepository<Category>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public Tag Find(int id)
         {

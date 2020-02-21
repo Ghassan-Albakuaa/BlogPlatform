@@ -10,7 +10,7 @@ namespace BlogPlatform.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
-        public DateTime PublishDate { get; set; }
+        public string PublishDate { get; set; }
         public virtual Category Category { get; set; }
         public virtual int CategoryId { get; set; }
        
@@ -21,7 +21,7 @@ namespace BlogPlatform.Models
 
         }
 
-        public Post(int id, string title, string author, DateTime publishDate)
+        public Post(int id, string title, string author, string publishDate)
         {
             Id = id;
             Title = title;

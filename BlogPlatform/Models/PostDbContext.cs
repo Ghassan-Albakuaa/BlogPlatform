@@ -20,7 +20,7 @@ namespace BlogPlatform.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=(localdb)\\mssqllocaldb;Database=MyProductDB2;Trusted_Connection=True;";
+            var connectionString = "Server=(localdb)\\mssqllocaldb;Database=MyPostDb;Trusted_Connection=True;";
 
             optionsBuilder.UseSqlServer(connectionString)
                           .UseLazyLoadingProxies();
@@ -28,65 +28,62 @@ namespace BlogPlatform.Models
             base.OnConfiguring(optionsBuilder);
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<ProductModel>().HasData(
-        //        new ProductModel
-        //        {
-        //            Id = 1,
-        //            Name = "Pac-Man",
-        //            Description = "Yellow fruit-eating monster",
-        //            Review = "I bought this arcade game, now I hate ghosts!",
-        //            Image = "/img/pacman.jpg" ,
-        //            ReviewId = 1
-        //        },
-        //        new ProductModel
-        //        {
-        //            Id = 2,
-        //            Name = "Gauntlet Legends",
-        //            Description = "Save the Realms from certain doom",
-        //            Review = "Wtf I love this game?",
-        //            Image = "/img/GauntletLegends.jpg",
-        //             ReviewId = 1
-        //        },
-        //        new ProductModel
-        //        {
-        //            Id = 3,
-        //            Name = "DigDug",
-        //            Description = "Dig and dug",
-        //            Review = "Being inflated till you explode has got to hurt!",
-        //            Image = "/img/digdug.jpg" ,
-        //            ReviewId = 3
-        //        }
-        //        );
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+         //   DateTime date = new DateTime();
+            string date= DateTime.Now.ToString("dd/MM/yyyy");
+            modelBuilder.Entity<Post>().HasData(
+                new Post
+                {
+                    Id = 1,
+                    Title = "Man",
+                    Author= "Yellow",
+                    PublishDate = date,
+                  CategoryId=1
+                },
+               new Post
+               {
+                   Id = 2,
+                   Title = "Car",
+                   Author = "Ali",
+                   PublishDate = date,
+                   CategoryId = 2
+               },
+                new Post
+                {
+                    Id = 3,
+                    Title = "Travel",
+                    Author = "Justin",
+                    PublishDate = date,
+                    CategoryId = 2
+                }
+                );
 
 
 
-        //    modelBuilder.Entity<Review>().HasData(
-        //        new Review()
-        //        {
-        //            Id = 1,
-        //            Description = "hlkjhlkjhkjlh",
-        //            Name = "ghassan"
-        //        },
-        //          new Review()
-        //          {
-        //              Id = 2,
-        //              Description = "hlkjhlkjhkjlh",
-        //            Name = "ghassan"
-        //          },
+            modelBuilder.Entity<Category>().HasData(
+                new Category()
+                {
+                    Id = 1,
+                    Name = "Advanture",
+                    
+                },
+                  new Category()
+                  {
+                      Id = 2,
+                     Name = "Cars"
+                  },
 
-        //        new Review()
-        //        {
-        //            Id = 3,
-        //            Description = "nbgkljglkjghlkjhl",
-        //             Name = "ali"
-        //        });
+                new Category()
+                {
+                    Id = 3,
+                    Name = "Flowers"
+                });
 
-        //    base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
 
-        //    //  base.OnConfiguring(modelBuilder);
-        //}
+           
+        }
     }
 }
 

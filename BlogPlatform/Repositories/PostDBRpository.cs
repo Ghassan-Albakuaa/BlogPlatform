@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BlogPlatform.Repositories
 {
-    public class PostDBpository : IRepository<Post>
+    public class PostDBRpository : IRepository<Post>
     {
         PostDbContext db;
 
-        public PostDBpository(PostDbContext _db)
+        public PostDBRpository(PostDbContext _db)
         {
             db = _db;
         }
