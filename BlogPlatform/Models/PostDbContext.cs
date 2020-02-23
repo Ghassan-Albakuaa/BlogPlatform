@@ -42,6 +42,7 @@ namespace BlogPlatform.Models
                     Id = 1,
                     Title = "Man",
                     Author= "Yellow",
+                    Description = "the best",
                     PublishDate = date,
                   CategoryId=1
                 },
@@ -51,6 +52,7 @@ namespace BlogPlatform.Models
                    Title = "Car",
                    Author = "Ali",
                    PublishDate = date,
+                   Description = "the best",
                    CategoryId = 2
                },
                 new Post
@@ -59,6 +61,7 @@ namespace BlogPlatform.Models
                     Title = "Travel",
                     Author = "Justin",
                     PublishDate = date,
+                    Description = "the best",
                     CategoryId = 2
                 }
                 );
