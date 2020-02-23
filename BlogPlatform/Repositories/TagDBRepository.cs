@@ -76,5 +76,9 @@ namespace BlogPlatform.Repositories
             throw new NotImplementedException();
         }
 
+        public Tag GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

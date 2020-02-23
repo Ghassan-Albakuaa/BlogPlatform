@@ -24,6 +24,10 @@ namespace BlogPlatform.Repositories
           
         }
 
+        public object Count()
+        {
+            return db.Posts.Count();
+        }
 
         public IEnumerable<Post> GetAll()
         {
@@ -69,6 +73,9 @@ namespace BlogPlatform.Repositories
             throw new NotImplementedException();
         }
 
-       
+        public Post GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

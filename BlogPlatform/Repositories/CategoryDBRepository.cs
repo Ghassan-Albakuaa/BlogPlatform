@@ -70,6 +70,10 @@ namespace BlogPlatform.Repositories
             throw new NotImplementedException();
         }
 
-      
+       
+        public Category GetById(int id)
+        {
+            return db.Categories.Single(c => c.Id == id);
+        }
     }
 }

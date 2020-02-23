@@ -10,6 +10,10 @@ namespace BlogPlatform.Models
 
     public class PostDbContext : DbContext
     {
+        public PostDbContext()
+        {
+        }
+
         public PostDbContext(DbContextOptions<PostDbContext> options) : base(options)
         {
 

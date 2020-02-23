@@ -29,7 +29,7 @@ namespace BlogPlatform.Controllers
         // GET: /Details/
         public ActionResult Details(int id)
         {
-            var post = tagRepo.Find(id);
+            var post = tagRepo.GetById(id);
             return View(post);
         }
 

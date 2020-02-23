@@ -29,8 +29,11 @@ namespace BlogPlatform.Controllers
         // GET: /Details/
         public ActionResult Details(int id)
         {
-            var category = categoryRepo.Find(id);
-            return View(category);
+            Category model = categoryRepo.GetById(id);
+
+            return View(model);
+
+
         }
 
         // GET: Product/Create
@@ -106,11 +109,7 @@ namespace BlogPlatform.Controllers
             }
         }
 
-        public ActionResult Review(int id)
-        {
-            var product = categoryRepo.Find(id);
-            return View(product);
-        }
+       
 
        
 

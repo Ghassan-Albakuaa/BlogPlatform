@@ -12,7 +12,7 @@ namespace BlogPlatform.Repositories
         IEnumerable<T> GetAll();
         IEnumerable Find(int id);
 
-        //Post Find2(int id);
+        T GetById(int id);
 
         void Add(int id,T product);
 
