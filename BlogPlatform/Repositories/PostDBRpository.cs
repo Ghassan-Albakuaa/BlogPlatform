@@ -14,10 +14,10 @@ namespace BlogPlatform.Repositories
 
         public PostDBRpository(PostDbContext _db)
         {
-            db = _db;
+            this.db = _db;
         }
 
-        public void Add(int id, Post post)
+        public void Add(Post post)
         {
             db.Posts.Add(post);
             db.SaveChanges();
@@ -52,12 +52,7 @@ namespace BlogPlatform.Repositories
           db.SaveChanges();
         }
                
-        IEnumerable<Post> IRepository<Post>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-         
+                
         public Post Find(int id)
         {
             throw new NotImplementedException();

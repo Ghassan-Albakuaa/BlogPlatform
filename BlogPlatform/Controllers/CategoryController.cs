@@ -51,7 +51,7 @@ namespace BlogPlatform.Controllers
             try
             {
 
-                categoryRepo.Add(id, category);
+                categoryRepo.Add(category);
 
                 return RedirectToAction(nameof(Index));
             }

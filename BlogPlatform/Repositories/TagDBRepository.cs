@@ -17,14 +17,13 @@ namespace BlogPlatform.Repositories
             db = _db;
         }
 
-        public void Add(int id, Tag tag)
+        public void Add(Tag tag)
         {
             db.Tags.Add(tag);
             db.SaveChanges();
 
         }
-
-
+        
         public IEnumerable<Tag> GetAll()
         {
             return db.Tags.ToList();

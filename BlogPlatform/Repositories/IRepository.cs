@@ -14,7 +14,7 @@ namespace BlogPlatform.Repositories
 
         T GetById(int id);
 
-        void Add(int id,T product);
+        void Add(T product);
 
         void Update(T product);
 

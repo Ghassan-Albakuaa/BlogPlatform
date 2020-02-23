@@ -81,8 +81,8 @@ namespace BlogPlatform
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Category}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
+            pattern: "{controller=Category}/{action=Index}/{id?}");
+            endpoints.MapRazorPages();
             });
         }
     }

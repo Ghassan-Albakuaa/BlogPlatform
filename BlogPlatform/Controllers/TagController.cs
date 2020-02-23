@@ -48,7 +48,7 @@ namespace BlogPlatform.Controllers
             try
             {
 
-                tagRepo.Add(id, tag);
+                tagRepo.Add(tag);
 
                 return RedirectToAction(nameof(Index));
             }

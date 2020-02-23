@@ -17,7 +17,7 @@ namespace BlogPlatform.Repositories
             db = _db;
         }
 
-        public void Add(int id, Category category)
+        public void Add(Category category)
         {
             db.Categories.Add(category);
             db.SaveChanges();

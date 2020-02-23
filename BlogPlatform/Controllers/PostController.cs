@@ -6,14 +6,12 @@ using BlogPlatform.Models;
 using BlogPlatform.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-
-
 namespace BlogPlatform.Controllers
 {
     public class PostController : Controller
     {
-
-        private readonly IRepository<Post> postRepo;
+        
+         IRepository<Post> postRepo;
 
         public PostController(IRepository<Post> postRepo)
         {
@@ -32,23 +30,24 @@ namespace BlogPlatform.Controllers
             var post = postRepo.GetById(id);
             return View(post);
         }
-
+        
         // GET: Product/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Product/Create
+        // POST: /Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(int id, Post post)
+        public ActionResult Create(Post post)
         {
 
             try
             {
 
-                postRepo.Add(id, post);
+                postRepo.Add(post);
 
                 return RedirectToAction(nameof(Index));
             }
